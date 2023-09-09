@@ -4,9 +4,9 @@ class Solution {
         for(int num : nums){
             map.put(num,map.getOrDefault(num,0)+1);
         }
-        for(int num : nums){
-            if(map.get(num)>nums.length/2){
-                return num;
+        for(Map.Entry<Integer,Integer> entry : map.entrySet()){
+            if(entry.getValue()>nums.length/2){
+                return entry.getKey();
             }
         }
         return 0;
