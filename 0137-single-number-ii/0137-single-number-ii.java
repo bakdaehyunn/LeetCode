@@ -6,9 +6,10 @@ class Solution {
           for(int j=0;j<nums.length;j++){
             if(((nums[j]>>i)&1)==1){
               sum++;
+              sum%=3;
             }
           }
-          sum%=3;
+          
           if(sum!=0){
             result |= sum<<i;
           }
