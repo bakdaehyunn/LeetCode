@@ -5,13 +5,13 @@ class Solution {
         return result;
     }
     public void backtrack(List<List<Integer>> result,List<Integer> list, int start,int n, int k){
-      if(list.size()==k){
+      if(k==0){
         result.add(new ArrayList<Integer>(list));
         return;
       }
-      for(int i=start;i<=n;i++){
+      for(int i=start;i<=n-k+1;i++){
         list.add(i);
-        backtrack(result,list,i+1,n,k);
+        backtrack(result,list,i+1,n,k-1);
         list.remove(list.size()-1);
 
       }
