@@ -14,23 +14,20 @@
  * }
  */
 class Solution {
-    int maxLevel;
-    List<Integer> result;
     public List<Integer> rightSideView(TreeNode root) {
-        result = new ArrayList<>();
+        List<Integer> result =new ArrayList();
+        Queue<TreeNode> queue = new LinkedList<>();
         if(root==null) return result;
-        maxLevel=0;
-        
-        rightView(root,1);
-        return result;
-    }
-    public void rightView(TreeNode root,int level){
-        if(root==null) return;
-        if(maxLevel<level){
-            result.add(root.val);
-            maxLevel=level;
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for(int i=0;i<size;i++){
+                TreeNode current = queue.poll();
+                if(i==0)result.add(current.val);
+                if(current.right!=null) queue.offer(current.right);
+                if(current.left!=null) queue.offer(current.left);
+            }
         }
-        rightView(root.right,level+1);
-        rightView(root.left,level+1);
+        return result;
     }
 }
