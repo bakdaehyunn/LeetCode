@@ -1,11 +1,11 @@
 class Solution {
     public boolean canJump(int[] nums) {
-        int finalPos = nums.length-1;
+        int end = nums.length-1;
         for(int i=nums.length-2;i>=0;i--){
-            if(i+nums[i]>=finalPos){
-                finalPos = i;
+            if(i+nums[i]>=end){
+                end=i;
             }
         }
-        return finalPos==0;
+        return end==0;
     }
 }
