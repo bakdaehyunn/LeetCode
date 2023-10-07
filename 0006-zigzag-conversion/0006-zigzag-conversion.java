@@ -4,7 +4,7 @@ class Solution {
         for(int i=0;i<numRows;i++){
             sb[i] = new StringBuilder();
         }
-        int index =0;
+        int index=0;
         while(index<s.length()){
             for(int i=0;i<numRows&&index<s.length();i++){
                 sb[i].append(s.charAt(index));
@@ -14,6 +14,7 @@ class Solution {
                 sb[i].append(s.charAt(index));
                 index++;
             }
+
         }
         StringBuilder result =new StringBuilder();
         for(int i=0;i<numRows;i++){
