@@ -17,7 +17,7 @@ class Solution {
     public boolean isSymmetric(TreeNode root) {
         return helper(root,root);
     }
-    public boolean  helper(TreeNode leftNode,TreeNode rightNode){
+    public boolean helper(TreeNode leftNode,TreeNode rightNode){
         if(leftNode==null&&rightNode==null){
             return true;
         }
