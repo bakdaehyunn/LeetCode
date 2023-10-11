@@ -25,6 +25,7 @@ class Solution {
         sum = sum*10+root.val;
         if(root.left==null&&root.right==null){
             result+=sum;
+            return;
         }
         helper(root.left,sum);
         helper(root.right,sum);
