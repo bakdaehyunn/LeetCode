@@ -1,59 +1,59 @@
 class LRUCache {
-    public class Node{
-      int key;
-      int value;
-      Node prev;
-      Node next;
-      Node(int key,int value){
-        this.key=key;
-        this.value =value;
-      }
+    class Node{
+        int key;
+        int value;
+        Node prev;
+        Node next;
+        Node(int key,int value){
+            this.key = key;
+            this.value = value;
+        }
     }
-
     int capacity;
-    Map<Integer,Node> map;
-    Node head;
+    Node head ;
     Node tail;
+    Map<Integer,Node> map;
     public LRUCache(int capacity) {
-        this.capacity=capacity;
-        map=new HashMap<>();
-        head= new Node(0,0);
+        this.capacity = capacity;
+        head = new Node(0,0);
         tail = new Node(0,0);
-        head.next=tail;
+        head.next = tail;
         tail.prev = head;
+        map = new HashMap<>();
     }
     
     public int get(int key) {
         if(map.containsKey(key)){
-          Node node = map.get(key);
-          remove(node);
-          insert(node);
-          return node.value;
+            Node temp = map.get(key);
+            remove(temp);
+            insert(temp);
+            return temp.value;
         }
         return -1;
     }
     
     public void put(int key, int value) {
         if(map.containsKey(key)){
-          remove(map.get(key));
+            remove(map.get(key));
         }
-        if(capacity==map.size()){
-          remove(tail.prev);
+        if(capacity ==  map.size()){
+            remove(tail.prev);
         }
         insert(new Node(key,value));
     }
-    public void remove(Node node){
-      map.remove(node.key);
-      node.prev.next=node.next;
-      node.next.prev = node.prev;
+    void remove(Node node){
+        map.remove(node.key);
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
     }
-    public void insert(Node node){
-      map.put(node.key,node);
-      Node temp = head.next;
-      head.next = node;
-      node.prev = head;
-      temp.prev = node;
-      node.next=temp;
+    void insert(Node node){
+        map.put(node.key,node);
+        Node temp = head.next;
+        head.next  = node;
+        node.prev  = head;
+        
+        temp.prev = node;
+        node.next = temp;
     }
 }
 
