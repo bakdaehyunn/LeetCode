@@ -16,7 +16,7 @@
 class Solution {
     int result;
     public int sumNumbers(TreeNode root) {
-        result =0;
+        result=0;
         helper(root,0);
         return result;
     }
@@ -29,5 +29,6 @@ class Solution {
         }
         helper(root.left,sum);
         helper(root.right,sum);
+
     }
 }
