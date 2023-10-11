@@ -18,9 +18,7 @@ class Solution {
         return helper(root,root);
     }
     public boolean helper(TreeNode leftNode,TreeNode rightNode){
-        if(leftNode==null&&rightNode==null){
-            return true;
-        }
+        if(leftNode==null&&rightNode==null) return true;
         if(leftNode!=null&&rightNode!=null&&leftNode.val==rightNode.val){
             return helper(leftNode.left,rightNode.right)&&helper(leftNode.right,rightNode.left);
         }
