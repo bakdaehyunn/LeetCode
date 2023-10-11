@@ -10,7 +10,7 @@
  */
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        if(head==null) return null;
+        //if(head==null) return null;
         int len=0;
         ListNode node =head;
         while(node!=null){
@@ -25,12 +25,11 @@ class Solution {
         ListNode prev = dummy;
         for(int i=0;i<round;i++){
             ListNode current = prev.next;
-            ListNode after = current.next;
             for(int j=0;j<k-1;j++){
-                current.next = after.next;
-                after.next  =prev.next;
-                prev.next = after;
-                after = current.next;
+                ListNode temp = current.next;
+                current.next = temp.next;
+                temp.next  =prev.next;
+                prev.next = temp;
             }
             prev = current;
         }
