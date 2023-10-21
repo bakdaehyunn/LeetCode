@@ -21,7 +21,7 @@ class Solution {
         if(inStart>inEnd|| postStart>postEnd)return null;
         TreeNode root = new TreeNode(postorder[postEnd]);
         int inIndex=0;
-        for(int i=0;i<inorder.length;i++){
+        for(int i=inStart;i<=inEnd;i++){
             if(root.val==inorder[i]){
                 inIndex=i;
             }
