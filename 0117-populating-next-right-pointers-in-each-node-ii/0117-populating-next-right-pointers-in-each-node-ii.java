@@ -26,22 +26,20 @@ class Solution {
         Node dummy = new Node(0);
         Node prev = dummy;
         Node result = root;
-        int i=0;
         while(root!=null){
-            if(root.left != null){
+            if(root.left!=null){
                 prev.next = root.left;
-                prev = root.left;
+                prev = prev.next;
             }
             if(root.right!=null){
                 prev.next = root.right;
-                prev = root.right;
+                prev =  prev.next;
             }
             root = root.next;
-            
             if(root==null){
                 prev = dummy;
                 root = dummy.next;
-                dummy.next =null;
+                dummy.next=null;
             }
         }
         return result;
