@@ -18,7 +18,7 @@ class BSTIterator {
     Stack<TreeNode> stack;
     public BSTIterator(TreeNode root) {
         current = root;
-        stack = new Stack<>();
+        stack= new Stack<>();
     }
     
     public int next() {
@@ -32,7 +32,7 @@ class BSTIterator {
     }
     
     public boolean hasNext() {
-        return current!=null||!stack.isEmpty();
+        return !stack.isEmpty()||current!=null;
     }
 }
 
