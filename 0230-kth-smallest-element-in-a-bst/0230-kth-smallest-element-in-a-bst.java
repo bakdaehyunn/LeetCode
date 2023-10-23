@@ -26,9 +26,8 @@ class Solution {
         helper(root.left);
         k--;
         if(k==0){
-            result = root.val;
+            result=root.val;
         }
         helper(root.right);
-
     }
 }
