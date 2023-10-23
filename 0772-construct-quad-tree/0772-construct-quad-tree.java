@@ -42,26 +42,26 @@ class Solution {
     public Node construct(int[][] grid) {
         return helper(grid,0,0,grid.length);
     }
-    public Node helper(int[][] grid, int i,int j, int length){
-      if(isSame(grid,i,j,length)){
-        return new Node(grid[i][j]==1,true);
-      }else{
-        Node node = new Node(false,false);
-        node.topLeft = helper(grid,i,j,length/2);
-        node.topRight = helper(grid,i,j+length/2,length/2);
-        node.bottomLeft = helper(grid,i+length/2,j,length/2);
-        node.bottomRight = helper(grid,i+length/2,j+length/2,length/2);
-        return node;
-      }
-    }
-    public boolean isSame(int[][] grid,int x ,int y,int length){
-      for(int i=x;i<x+length;i++){
-        for(int j=y;j<y+length;j++){
-          if(grid[i][j]!=grid[x][y]){
-            return false;
-          }
+    public Node helper(int[][] grid,int i, int j,int length){
+        if(isSame(grid,i,j,length)){
+            return new Node(grid[i][j]==1,true);
+        }else{
+            Node root = new Node(false,false);
+            root.topLeft =helper(grid,i,j,length/2);
+            root.topRight = helper(grid,i,j+length/2,length/2);
+            root.bottomLeft=helper(grid,i+length/2,j,length/2);
+            root.bottomRight = helper(grid,i+length/2,j+length/2,length/2);
+            return root;
         }
-      }
-      return true;
+    }
+    public boolean isSame(int[][] grid,int i, int j, int length){
+        for(int x = i;x<i+length;x++){
+            for(int y=j;y<j+length;y++){
+                if(grid[x][y]!=grid[i][j]){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
