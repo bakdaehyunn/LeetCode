@@ -19,7 +19,7 @@ class Solution {
     }
     public boolean helper(TreeNode leftNode,TreeNode rightNode){
         if(leftNode==null&&rightNode==null)return true;
-        else if(leftNode!=null&&rightNode!=null&&leftNode.val==rightNode.val){
+        if(leftNode!=null&&rightNode!=null&&leftNode.val==rightNode.val){
             return helper(leftNode.left,rightNode.right)&&helper(leftNode.right,rightNode.left);
         }
         return false;
