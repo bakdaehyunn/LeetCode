@@ -20,19 +20,19 @@ class Node {
 
 class Solution {
     public Node cloneGraph(Node node) {
-        if(node==null)return node;
+        if(node==null) return node;
         Node copy = new Node(node.val);
-        Node[] visited = new Node[101];
-        helper(node,copy,visited);
+        Node[] visited= new Node[101];
+        dfs(node,copy,visited);
         return copy;
     }
-    public void helper(Node node, Node copy, Node[]visited){
-        visited[copy.val] = copy;
+    public void dfs(Node node,Node copy,Node[]visited){
+        visited[copy.val] =copy;
         for(Node n : node.neighbors){
             if(visited[n.val]==null){
                 Node newNode = new Node(n.val);
                 copy.neighbors.add(newNode);
-                helper(n,newNode,visited);
+                dfs(n,newNode,visited);
             }else{
                 copy.neighbors.add(visited[n.val]);
             }
