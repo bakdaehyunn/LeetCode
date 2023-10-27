@@ -16,17 +16,16 @@ class Solution {
         ListNode list2 = dummy2;
         while(head!=null){
             if(head.val<x){
-                list1.next= head;
+                list1.next = head;
                 list1 = list1.next;
             }else{
-                list2.next= head;
+                list2.next = head;
                 list2 = list2.next;
             }
-            head = head.next;
+            head= head.next;
         }
         list2.next =null;
         list1.next = dummy2.next;
         return dummy1.next;
-
     }
 }
