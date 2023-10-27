@@ -4,12 +4,13 @@ class Solution {
         backtrack(result,"",0,0,n);
         return result;
     }
-    public void backtrack(List<String> result, String str,int open,int close,int max){
-        if(str.length()==max*2){
-            result.add(new String(str));
+    public void backtrack(List<String> result, String str,int open,int close,int n){
+        if(str.length()==n*2){
+            result.add(str);
             return ;
         }
-        if(open<max)backtrack(result,str+"(",open+1,close,max);
-        if(close<open)backtrack(result,str+")",open,close+1,max);
+        if(open<n)backtrack(result,str+"(",open+1,close,n);
+        if(close<open)backtrack(result,str+")",open,close+1,n);
+
     }
 }
