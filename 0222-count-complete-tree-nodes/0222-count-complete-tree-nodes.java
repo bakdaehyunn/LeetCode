@@ -15,14 +15,14 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-        if(root ==null) return 0;
+        if(root==null)return 0;
         int lh = leftHeight(root);
         int rh = rightHeight(root);
         if(lh==rh) return (int)Math.pow(2,lh)-1;
-        return 1+(countNodes(root.left)+countNodes(root.right));
+        return 1+countNodes(root.left)+countNodes(root.right);
     }
     public int leftHeight(TreeNode root){
-        if(root == null)return 0;
+        if(root ==null) return 0;
         return 1+leftHeight(root.left);
     }
     public int rightHeight(TreeNode root){
