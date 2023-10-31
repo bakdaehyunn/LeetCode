@@ -15,9 +15,9 @@ class Solution {
             }
         }
     }
-    public void dfs(char[][]board, int i,int j){
+    public void dfs(char[][] board, int i, int j){
         if(i<0||i>board.length-1||j<0||j>board[0].length-1)return;
-        if(board[i][j]=='X'||board[i][j]=='*')return ;
+        if(board[i][j]=='X'||board[i][j]=='*')return;
         board[i][j]='*';
         dfs(board,i-1,j);
         dfs(board,i+1,j);
