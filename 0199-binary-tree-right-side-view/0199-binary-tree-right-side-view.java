@@ -23,11 +23,12 @@ class Solution {
             int size = queue.size();
             for(int i=0;i<size;i++){
                 TreeNode current = queue.poll();
-                if(i==0) result.add(current.val);
+                if(i==0)result.add(current.val);
                 if(current.right!=null)queue.offer(current.right);
                 if(current.left!=null)queue.offer(current.left);
             }
         }
         return result;
+
     }
 }
