@@ -9,7 +9,8 @@ class Solution {
             int[] pair = heap.poll();
             int sum = pair[0];
             int idx = pair[1];
-            List<Integer> list = new ArrayList<>();
+
+            List<Integer> list =new ArrayList<>();
             list.add(sum-nums2[idx]);
             list.add(nums2[idx]);
             result.add(list);
