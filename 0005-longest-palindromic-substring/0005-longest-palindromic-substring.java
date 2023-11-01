@@ -5,19 +5,19 @@ class Solution {
         for(int i=0;i<s.length();i++){
             int odd = expand(s,i,i);
             int even = expand(s,i,i+1);
-            int length = Math.max(odd,even);
+            int length= Math.max(odd,even);
             if(length>right-left+1){
-                left = i-(length-1)/2;
-                right = i+length/2;
+                left = i- (length-1)/2;
+                right = i+ length/2;
             }
         }
         return s.substring(left,right+1);
     }
-    public int expand(String s , int i, int j){
-        while(i>=0&&j<s.length()&&s.charAt(i)==s.charAt(j)){
-            i--;
-            j++;
+    public int expand(String s, int left, int right){
+        while(left>=0&&right<s.length()&&s.charAt(left)==s.charAt(right)){
+            left--;
+            right++;
         }
-        return j-i-1;
+        return right-left-1;
     }
 }
