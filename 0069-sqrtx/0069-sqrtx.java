@@ -6,8 +6,8 @@ class Solution {
         while(left<=right){
             int mid= left+(right-left)/2;
             System.out.println(mid);
-            if(mid==x/mid)return mid;
-            else if(mid>x/mid)right=mid-1;
+            if(mid>x/mid)right=mid-1;
+            else if(mid==x/mid)return mid;
             else if(mid<x/mid)left=mid+1;
         }
         return right;
