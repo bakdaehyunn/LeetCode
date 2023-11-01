@@ -1,10 +1,10 @@
 class Solution {
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> result =new ArrayList<>();
         backtrack(result,new ArrayList<>(),n,k,1);
         return result;
     }
-    public void backtrack(List<List<Integer>>result, List<Integer> list, int n, int k,int index){
+    public void backtrack(List<List<Integer>>result, List<Integer> list,int n,int k,int index){
         if(k==0){
             result.add(new ArrayList<>(list));
             return ;
