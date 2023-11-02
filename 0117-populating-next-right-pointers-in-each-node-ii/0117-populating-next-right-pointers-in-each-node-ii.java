@@ -25,21 +25,22 @@ class Solution {
     public Node connect(Node root) {
         Node dummy =new Node(0);
         Node prev = dummy;
-        Node result  =root;
+        Node result = root;
         while(root!=null){
             if(root.left!=null){
-                prev.next = root.left;
+                prev.next= root.left;
                 prev = prev.next;
             }
             if(root.right!=null){
-                prev.next= root.right;
-                prev = prev.next;
+                prev.next =root.right;
+                prev= prev.next;
             }
             root = root.next;
             if(root==null){
-                prev.next = null;
                 root = dummy.next;
                 prev = dummy;
+                prev.next = null;
+
             }
         }
         return result;
