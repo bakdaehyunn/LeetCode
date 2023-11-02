@@ -17,22 +17,22 @@ class BSTIterator {
     Stack<TreeNode> stack;
     TreeNode current;
     public BSTIterator(TreeNode root) {
+        stack =new Stack<>();
         current = root;
-        stack=new Stack<>();
     }
     
     public int next() {
         while(current!=null){
             stack.push(current);
-            current =current.left;
+            current = current.left;
         }
-        TreeNode temp = stack.pop();
-        current = temp.right;
-        return temp.val;
+        TreeNode node = stack.pop();
+        current = node.right;
+        return node.val;
     }
     
     public boolean hasNext() {
-        return !stack.isEmpty()||current!=null;
+        return current!=null||!stack.isEmpty();
     }
 }
 
