@@ -16,13 +16,11 @@
 class Solution {
     public boolean isSymmetric(TreeNode root) {
         if(root.left==null&&root.right==null)return true;
-        return helper(root.left,root.right)&&helper(root.right,root.left);
+        return helper(root.left,root.right);
     }
-    public boolean helper(TreeNode left, TreeNode right){
-        if(left==null&&right==null)return true;
-        else if(left!=null&&right!=null&&left.val==right.val){
-            return helper(left.left,right.right)&&helper(left.right,right.left);
-        }
-        return false;
+    public boolean helper(TreeNode leftNode,TreeNode rightNode){
+        if(leftNode==null&&rightNode==null)return true;
+        if(leftNode==null||rightNode==null||leftNode.val!=rightNode.val)return false;
+        return helper(leftNode.left,rightNode.right)&&helper(leftNode.right,rightNode.left);
     }
 }
