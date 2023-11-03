@@ -4,10 +4,10 @@ class Solution {
         backtrack(result,new ArrayList<>(),nums);
         return result;
     }
-    public void backtrack(List<List<Integer>>result, List<Integer> list, int[]nums){
-        if(list.size()==nums.length){
+    public void backtrack(List<List<Integer>> result, List<Integer> list, int[] nums){
+        if(nums.length==list.size()){
             result.add(new ArrayList<>(list));
-            return;
+            return ;
         }
         for(int i=0;i<nums.length;i++){
             if(list.contains(nums[i]))continue;
