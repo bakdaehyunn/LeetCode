@@ -10,12 +10,12 @@
  */
 class Solution {
     public ListNode sortList(ListNode head) {
-        if(head==null||head.next==null)return head;
+        if(head==null||head.next==null) return head;
         ListNode fast = head;
         ListNode slow = head;
-        ListNode prev =null;
+        ListNode prev = null;
         while(fast!=null&&fast.next!=null){
-            fast= fast.next.next;
+            fast = fast.next.next;
             prev = slow;
             slow = slow.next;
         }
@@ -24,24 +24,24 @@ class Solution {
         ListNode right = sortList(slow);
         return merge(left,right);
     }
-    public ListNode merge(ListNode left, ListNode right){
-        ListNode dummy = new ListNode(0);
-        ListNode current = dummy;
+    public ListNode merge(ListNode left,ListNode right){
+        ListNode dummy =new ListNode(0);
+        ListNode prev = dummy;
         while(left!=null&&right!=null){
             if(left.val<right.val){
-                current.next  =left;
+                prev.next= left;
                 left = left.next;
             }else{
-                current.next= right;
+                prev.next =right;
                 right = right.next;
             }
-            current = current.next;
+            prev = prev.next;
         }
         if(left!=null){
-            current.next = left;
+            prev.next= left;
         }
         if(right!=null){
-            current.next = right;
+            prev.next = right;
         }
         return dummy.next;
     }
