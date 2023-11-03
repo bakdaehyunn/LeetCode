@@ -10,34 +10,34 @@
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        if(lists.length==0)return null;
+        if(lists.length==0) return null;
         return helper(lists,0,lists.length-1);
     }
-    public ListNode helper(ListNode[] lists, int left, int right ){
+    public ListNode helper(ListNode[] lists, int left, int right){
         if(left==right)return lists[left];
-        int mid = left+(right-left)/2;
+        int mid = left +(right-left)/2;
         ListNode leftNode = helper(lists,left,mid);
         ListNode rightNode = helper(lists,mid+1,right);
         return merge(leftNode,rightNode);
     }
     public ListNode merge(ListNode left,ListNode right){
         ListNode dummy =new ListNode(0);
-        ListNode current =dummy;
+        ListNode prev = dummy;
         while(left!=null&&right!=null){
             if(left.val<right.val){
-                current.next = left;
+                prev.next= left;
                 left=left.next;
             }else{
-                current.next =right;
-                right= right.next;
+                prev.next = right;
+                right = right.next;
             }
-            current =current.next;
+            prev= prev.next;
         }
         if(left!=null){
-            current.next = left;
+            prev.next = left;
         }
         if(right!=null){
-            current.next =right;
+            prev.next =right;
         }
         return dummy.next;
     }
